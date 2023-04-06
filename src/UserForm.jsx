@@ -19,11 +19,19 @@ function UserForm(props) {
 
   return (
     <div className="user-form">
-      <h2>User Form</h2>
+      <h2 className="font-bold text-xl mb-4">User Form</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="firstName">First Name</label>
+        <div className="mb-4">
+          <label
+            className={`block  text-sm font-bold mb-2 ${
+              errors.firstName ? "text-red-700" : "text-gray-700"
+            }`}
+            htmlFor="firstName"
+          >
+            First Name
+          </label>
           <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 mb-1  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="firstName"
             {...register("firstName", {
               required: "First Name is required",
@@ -35,12 +43,22 @@ function UserForm(props) {
           />
 
           {errors.firstName && (
-            <div role="alert">{errors.firstName?.message}</div>
+            <p className="text-red-500 text-xs italic" role="alert">
+              {errors.firstName?.message}
+            </p>
           )}
         </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
+        <div className="mb-4">
+          <label
+            className={`block  text-sm font-bold mb-2 ${
+              errors.lastName ? "text-red-700" : "text-gray-700"
+            }`}
+            htmlFor="lastName"
+          >
+            Last Name
+          </label>
           <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 mb-1  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="lastName"
             {...register("lastName", {
               required: "Last Name is required",
@@ -52,12 +70,22 @@ function UserForm(props) {
           />
 
           {errors.lastName && (
-            <div role="alert">{errors.lastName?.message}</div>
+            <p className="text-red-500 text-xs italic" role="alert">
+              {errors.lastName?.message}
+            </p>
           )}
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className="mb-4">
+          <label
+            className={`block  text-sm font-bold mb-2 ${
+              errors.email ? "text-red-700" : "text-gray-700"
+            }`}
+            htmlFor="email"
+          >
+            Email
+          </label>
           <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 mb-1  text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             {...register("email", {
               required: "Email is required",
@@ -68,10 +96,18 @@ function UserForm(props) {
               },
             })}
           />
-          {errors.email && <div role="alert">{errors.email?.message}</div>}
+          {errors.email && (
+            <p className="text-red-500 text-xs italic" role="alert">
+              {errors.email?.message}
+            </p>
+          )}
         </div>
 
-        <input type="submit" value={"Add User"} />
+        <input
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+          value={"Add User"}
+        />
       </form>
     </div>
   );
