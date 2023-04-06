@@ -38,18 +38,18 @@ const sortUser = (draftObject) => {
     let fa = a[draftObject.sortBy].toLowerCase(),
       fb = b[draftObject.sortBy].toLowerCase();
     if (draftObject.asc) {
-      if (fa > fb) {
+      if (fa < fb) {
         return -1;
       }
-      if (fa < fb) {
+      if (fa > fb) {
         return 1;
       }
       return 0;
     } else {
-      if (fa < fb) {
+      if (fa > fb) {
         return -1;
       }
-      if (fa > fb) {
+      if (fa < fb) {
         return 1;
       }
       return 0;
